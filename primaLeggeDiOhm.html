@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prima legge di Ohm</title>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html,
+        body {
+            background: whitesmoke;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            margin: 0;
+        }
+
+        #container {
+            background: white;
+            padding: 16px 32px;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(30, 30, 50, 0.08);
+            /* text-align: center; */
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid lightgrey;
+        }
+
+        button {
+            font-size: 16px;
+            cursor: pointer;
+            background: white;
+            border: 1px solid #808080;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Calcolatrice: Prima legge di Ohm</h1>
+
+        <hr>
+
+        <h3>Dati</h3>
+
+        <p><label for="tensione">Tensione (V): <input type="number" id="tensioneInput"> V</label></p>
+
+        <p><label for="corrente">Corrente (I): <input type="number" id="correnteInput"> A</label></p>
+
+        <p><label for="resistenza">Resistenza (R): <input type="number" id="resistenzaInput"> Ω</label></p>
+
+        <button onclick="calcola()">Calcola</button>
+
+        <h3>Risultati</h3>
+
+        <p id="risultato">-</p>
+    </div>
+
+    <script>
+        function calcola() {
+            let V = parseFloat(document.getElementById('tensioneInput').value);
+            let I = parseFloat(document.getElementById('correnteInput').value);
+            let R = parseFloat(document.getElementById('resistenzaInput').value);
+            let risultato = document.getElementById('risultato');
+
+            if (isNaN(V) && !isNaN(I) && !isNaN(R)) {
+                V = I * R;
+                risultato.textContent = `Tensione (V) = ${V.toFixed(2)} V`;
+            } else if (!isNaN(V) && isNaN(I) && !isNaN(R)) {
+                I = V / R;
+                risultato.textContent = `Corrente (I) = ${I.toFixed(2)} A`;
+            } else if (!isNaN(V) && !isNaN(I) && isNaN(R)) {
+                R = V / I;
+                risultato.textContent = `Resistenza (R) = ${R.toFixed(2)} Ω`;
+            } else if (!isNaN(V) && !isNaN(I) && !isNaN(R)) {
+                risultato.textContent = 'Lasciami calcolare qualcosa!';
+            } else {
+                risultato.textContent = 'Inserisci almeno due valori.';
+            };
+        }
+    </script>
+</body>
+
+</html>
