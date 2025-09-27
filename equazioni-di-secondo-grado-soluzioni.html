@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equazioni di 2° grado (soluzioni)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="container">
+        <h1>Equazioni di 2° grado (soluzioni)</h1>
+
+        <p class="madeWithLove">Made with ❤️ by <a href="https://github.com/ChampyTech">ChampyTech</a></p>
+
+        <hr>
+
+        <h3>Dati</h3>
+
+        <i>Ax² + Bx + c = 0</i>
+
+        <p><label for="A">A: <br> <input type="number" id="AInput"></label></p>
+
+        <p><label for="B">B: <br> <input type="number" id="BInput"></label></p>
+
+        <p><label for="C">C: <br> <input type="number" id="CInput"></label></p>
+
+        <button onclick="calcola()">Calcola</button>
+
+        <h3>Risultati</h3>
+
+        <span id="risultato">-</span>
+    </div>
+
+    <script>
+        function calcola() {
+            let A = parseFloat(document.getElementById('AInput').value);
+            let B = parseFloat(document.getElementById('BInput').value);
+            let C = parseFloat(document.getElementById('CInput').value);
+            let risultato = document.getElementById('risultato');
+
+            if (A == 0) return risultato.textContent = 'Ricordati che A non può essere uguale a 0.';
+            if (isNaN(A) || isNaN(B) || isNaN(C)) return risultato.textContent = 'Per favore inserisci tutti e 3 i valori.';
+
+            let discriminante = B * B - 4 * A * C;
+
+            if (discriminante < 0) {
+                risultato.textContent = 'Nessuna soluzione reale.';
+            } else if (discriminante == 0) {
+                let X = (-B) / (2 * A);
+                risultato.textContent = `Soluzioni reali coincidenti: x₁ = x₂= ${X.toLocaleString('it-IT')}`;
+            } else {
+                let X1 = (-B + Math.sqrt(discriminante)) / (2 * A);
+                let X2 = (-B - Math.sqrt(discriminante)) / (2 * A);
+                risultato.textContent = `Soluzioni reali e distinte: x₁ = ${X1.toLocaleString('it-IT')} | x₂ = ${X2.toLocaleString('it-IT')}`;
+            }
+
+            // risultato.textContent = `Δ = ${discriminante.toLocaleString('it-IT')}`;
+
+            // if (discriminante < 0) possibile.textContent = 'Questa equazione non ha soluzioni reali.';
+            // else if (discriminante = 0) possibile.textContent = 'Questa equazione ha 2 soluzioni reali coincidenti.';
+            // else possibile.textContent = 'Questa equazione ha 2 soluzioni reali e distinte.';
+
+            // if (!isNaN(A) && !isNaN(B) && !isNaN(C)) {
+            //     risultato.textContent = `Δ = ${discriminante.toLocaleString('it-IT')}`;
+            // }
+
+            // let V = parseFloat(document.getElementById('tensioneInput').value);
+            // let I = parseFloat(document.getElementById('correnteInput').value);
+            // let R = parseFloat(document.getElementById('resistenzaInput').value);
+            // let risultato = document.getElementById('risultato');
+
+            // if (isNaN(V) && !isNaN(I) && !isNaN(R)) {
+            //     V = I * R;
+            //     risultato.textContent = `Tensione (V) = ${V.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} V`;
+            // } else if (!isNaN(V) && isNaN(I) && !isNaN(R)) {
+            //     I = V / R;
+            //     risultato.textContent = `Corrente (I) = ${I.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} A`;
+            // } else if (!isNaN(V) && !isNaN(I) && isNaN(R)) {
+            //     R = V / I;
+            //     risultato.textContent = `Resistenza (R) = ${R.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} Ω`;
+            // } else if (!isNaN(V) && !isNaN(I) && !isNaN(R)) {
+            //     risultato.textContent = 'Lasciami calcolare qualcosa!';
+            // } else {
+            //     risultato.textContent = 'Inserisci almeno due valori.';
+            // };
+        }
+    </script>
+</body>
+
+</html>
