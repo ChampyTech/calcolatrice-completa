@@ -32,3 +32,16 @@ button {
     border: 1px solid #808080;
     border-radius: 5px;
 }
+
+a {
+    color: green;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    margin-top: 0;
+}
