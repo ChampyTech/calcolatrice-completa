@@ -44,13 +44,13 @@
 
             if (isNaN(V) && !isNaN(I) && !isNaN(R)) {
                 V = I * R;
-                risultato.textContent = `Tensione (V) = ${V.toFixed(3)} V`;
+                risultato.textContent = `Tensione (V) = ${V.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} V`;
             } else if (!isNaN(V) && isNaN(I) && !isNaN(R)) {
                 I = V / R;
-                risultato.textContent = `Corrente (I) = ${I.toFixed(3)} A`;
+                risultato.textContent = `Corrente (I) = ${I.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} A`;
             } else if (!isNaN(V) && !isNaN(I) && isNaN(R)) {
                 R = V / I;
-                risultato.textContent = `Resistenza (R) = ${R.toFixed(3)} Ω`;
+                risultato.textContent = `Resistenza (R) = ${R.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} Ω`;
             } else if (!isNaN(V) && !isNaN(I) && !isNaN(R)) {
                 risultato.textContent = 'Lasciami calcolare qualcosa!';
             } else {
