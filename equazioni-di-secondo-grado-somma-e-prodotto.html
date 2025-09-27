@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcolatrice: Equazioni di 2° grado (s e p)</title>
+    <title>Equazioni di 2° grado (somma e prodotto)</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div id="container">
-        <h1>Calcolatrice: Equazioni di 2° grado (s e p)</h1>
+        <h1>Equazioni di 2° grado (somma e prodotto)</h1>
 
         <p class="madeWithLove">Made with ❤️ by <a href="https://github.com/ChampyTech">ChampyTech</a></p>
 
@@ -30,8 +30,7 @@
 
         <h3>Risultati</h3>
 
-        Somma: <span id="somma">-</span> <br>
-        Prodotto: <span id="prodotto">-</span>
+        <span id="risultato">-</span>
     </div>
 
     <script>
@@ -42,40 +41,13 @@
             let somma = document.getElementById('somma');
             let prodotto = document.getElementById('prodotto');
 
-            let discriminante = B * B - 4 * A * C;
-
             if (A == 0) return risultato.textContent = 'Ricordati che A non può essere uguale a 0.';
             if (isNaN(A) || isNaN(B) || isNaN(C)) return risultato.textContent = 'Per favore inserisci tutti e 3 i valori.';
 
-            risultato.textContent = `Δ = ${discriminante.toLocaleString('it-IT')}`;
+            let sommaValori = -B / A;
+            let prodottoValori = C / A;
 
-            if (discriminante < 0) possibile.textContent = 'Questa equazione non ha soluzioni reali.';
-            else if (discriminante = 0) possibile.textContent = 'Questa equazione ha 2 soluzioni reali coincidenti.';
-            else possibile.textContent = 'Questa equazione ha 2 soluzioni reali e distinte.';
-
-            // if (!isNaN(A) && !isNaN(B) && !isNaN(C)) {
-            //     risultato.textContent = `Δ = ${discriminante.toLocaleString('it-IT')}`;
-            // }
-
-            // let V = parseFloat(document.getElementById('tensioneInput').value);
-            // let I = parseFloat(document.getElementById('correnteInput').value);
-            // let R = parseFloat(document.getElementById('resistenzaInput').value);
-            // let risultato = document.getElementById('risultato');
-
-            // if (isNaN(V) && !isNaN(I) && !isNaN(R)) {
-            //     V = I * R;
-            //     risultato.textContent = `Tensione (V) = ${V.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} V`;
-            // } else if (!isNaN(V) && isNaN(I) && !isNaN(R)) {
-            //     I = V / R;
-            //     risultato.textContent = `Corrente (I) = ${I.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} A`;
-            // } else if (!isNaN(V) && !isNaN(I) && isNaN(R)) {
-            //     R = V / I;
-            //     risultato.textContent = `Resistenza (R) = ${R.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} Ω`;
-            // } else if (!isNaN(V) && !isNaN(I) && !isNaN(R)) {
-            //     risultato.textContent = 'Lasciami calcolare qualcosa!';
-            // } else {
-            //     risultato.textContent = 'Inserisci almeno due valori.';
-            // };
+            risultato.textContent = `Somma = ${sommaValori.toLocaleString('it-IT')} Prodotto: ${prodottoValori.toLocaleString('it-IT')}`;
         }
     </script>
 </body>
