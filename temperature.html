@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="container">
+        <h1>Temperature</h1>
+
+        <p class="madeWithLove">Made with ❤️ by <a href="https://github.com/ChampyTech">ChampyTech</a></p>
+
+        <hr>
+
+        <h3>Dati</h3>
+
+        <label>Celsius: <input type="number" id="celsiusInput"> °C</label>
+        <label>Delisle: <input type="number" id="delisleInput"> °De</label>
+        <label>Fahrenheit: <input type="number" id="fahrenheitInput"> °F</label>
+        <label>Kelvin: <input type="number" id="kelvinInput"> K</label>
+        <label>Leiden: <input type="number" id="leidenInput"> °L</label>
+        <label>Newton: <input type="number" id="newtonInput"> °N</label>
+        <label>Planck: <input type="number" id="planckInput"> °P</label>
+        <label>Rankine: <input type="number" id="rankineInput"> °R</label>
+        <label>Réaumur: <input type="number" id="reaumurInput"> °Ré</label>
+        <label>Rømer: <input type="number" id="romerInput"> °Rø</label>
+        <label>Wedgwood: <input type="number" id="wedgwoodInput"> °W</label>
+
+        <button onclick="calcola()">Calcola</button>
+
+        <h3>Risultati</h3>
+
+        <span id="risultato">-</span>
+    </div>
+
+    <script>
+        function calcola() {
+            const valori = {
+                Celsius: document.getElementById('celsiusInput').value,
+                Delisle: document.getElementById('delisleInput').value,
+                Fahrenheit: document.getElementById('fahrenheitInput').value,
+                Kelvin: document.getElementById('kelvinInput').value,
+                Leiden: document.getElementById('leidenInput').value,
+                Newton: document.getElementById('newtonInput').value,
+                Planck: document.getElementById('planckInput').value,
+                Rankine: document.getElementById('rankineInput').value,
+                Réaumur: document.getElementById('reaumurInput').value,
+                Rømer: document.getElementById('romerInput').value,
+                Wedgwood: document.getElementById('wedgwoodInput').value
+            };
+            let risultato = document.getElementById('risultato');
+
+            let compilati = Object.entries(valori).filter(([u, v]) => v !== '');
+            if (compilati.length === 0) return risultato.textContent = 'Per favore inserisci almeno un valore.';
+            if (compilati.length > 1) return risultato.textContent = 'Per favore inserisci solo un valore alla volta.';
+
+            let [scala, valore] = compilati[0];
+            let x = parseFloat(valore);
+
+            let C;
+            switch (scala) {
+                case "Celsius": C = x; break;
+                case "Delisle": C = 100 - x / 1.5; break;
+                case "Fahrenheit": C = (x - 32) * 5 / 9; break;
+                case "Kelvin": C = x - 273.15; break;
+                case "Leiden": C = x - 253; break; // approx.
+                case "Newton": C = x * 100 / 33; break;
+                case "Planck": C = x * 1.416784e32 - 273.15; break; // approx.
+                case "Rankine": C = (x - 491.67) * 5 / 9; break;
+                case "Réaumur": C = x * 5 / 4; break;
+                case "Rømer": C = (x - 7.5) * 40 / 21; break;
+                case "Wedgwood": C = x * 13.5 + 1078; break; // approx.
+            }
+
+            let results = {
+                Celsius: C,
+                Delisle: (100 - C) * 1.5,
+                Fahrenheit: C * 9 / 5 + 32,
+                Kelvin: C + 273.15,
+                Leiden: C + 253,
+                Newton: C * 33 / 100,
+                Planck: (C + 273.15) / 1.416784e32,
+                Rankine: (C + 273.15) * 9 / 5,
+                Réaumur: C * 4 / 5,
+                Rømer: C * 21 / 40 + 7.5,
+                Wedgwood: (C - 1078) / 13.5
+            };
+
+            risultato.innerHTML = Object.entries(results).map(([unit, val]) => `${unit}: ${val.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`).join('<br>');
+        }
+    </script>
+</body>
+
+</html>
