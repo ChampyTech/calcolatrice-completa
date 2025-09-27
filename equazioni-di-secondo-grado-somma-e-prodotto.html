@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcolatrice: Equazioni di 2° grado (Δ)</title>
+    <title>Calcolatrice: Equazioni di 2° grado (s e p)</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div id="container">
-        <h1>Calcolatrice: Equazioni di 2° grado (Δ)</h1>
+        <h1>Calcolatrice: Equazioni di 2° grado (s e p)</h1>
 
         <p class="madeWithLove">Made with ❤️ by <a href="https://github.com/ChampyTech">ChampyTech</a></p>
 
@@ -30,8 +30,8 @@
 
         <h3>Risultati</h3>
 
-        <span id="risultato">-</span> <br>
-        <span id="possibile">-</span>
+        Somma: <span id="somma">-</span> <br>
+        Prodotto: <span id="prodotto">-</span>
     </div>
 
     <script>
@@ -39,8 +39,9 @@
             let A = parseFloat(document.getElementById('AInput').value);
             let B = parseFloat(document.getElementById('BInput').value);
             let C = parseFloat(document.getElementById('CInput').value);
-            let risultato = document.getElementById('risultato');
-            let possibile = document.getElementById('possibile');
+            let somma = document.getElementById('somma');
+            let prodotto = document.getElementById('prodotto');
+
             let discriminante = B * B - 4 * A * C;
 
             if (A == 0) return risultato.textContent = 'Ricordati che A non può essere uguale a 0.';
