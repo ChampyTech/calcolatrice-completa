@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peso specifico</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="container">
+        <h1>Peso specifico</h1>
+
+        <p class="madeWithLove">Made with ❤️ by <a href="https://github.com/ChampyTech">ChampyTech</a></p>
+
+        <hr>
+
+        <h3>Dati</h3>
+
+        <p><label for="peso">Peso (P): <br> <input type="number" id="pesoInput"> g</label></p>
+
+        <p><label for="volume">Volume (V): <br> <input type="number" id="volumeInput"> cm³</label></p>
+
+        <p><label for="pesoSpecifico">Peso specifico (Ps): <br> <input type="number" id="pesoSpecificoInput">
+                g/cm³</label></p>
+
+        <button onclick="calcola()">Calcola</button>
+
+        <h3>Risultati</h3>
+
+        <span id="risultato">-</span>
+    </div>
+
+    <script>
+        function calcola() {
+            let P = parseFloat(document.getElementById('pesoInput').value);
+            let V = parseFloat(document.getElementById('volumeInput').value);
+            let Ps = parseFloat(document.getElementById('pesoSpecificoInput').value);
+            let risultato = document.getElementById('risultato');
+
+            if (isNaN(P) && !isNaN(V) && !isNaN(Ps)) {
+                P = Ps * V;
+                risultato.textContent = `Peso (P) = ${P.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} g`;
+            } else if (!isNaN(P) && isNaN(V) && !isNaN(Ps)) {
+                V = P / Ps;
+                risultato.textContent = `Volume (V) = ${V.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} cm³`;
+            } else if (!isNaN(P) && !isNaN(V) && isNaN(Ps)) {
+                Ps = P / V;
+                risultato.textContent = `Peso specifico (Ps) = ${Ps.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} g/cm³ o kg/dm³`;
+            } else if (!isNaN(P) && !isNaN(V) && !isNaN(Ps)) {
+                risultato.textContent = 'Bene, ma quindi cosa vuoi che calcoli? 🤔';
+            } else {
+                risultato.textContent = 'Please, inserisci almeno due valori.';
+            };
+        }
+    </script>
+</body>
+
+</html>
