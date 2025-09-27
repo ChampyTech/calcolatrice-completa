@@ -47,16 +47,16 @@
 
             if (isNaN(Ro) && !isNaN(L) && !isNaN(S) && !isNaN(R)) {
                 Ro = R * S / L;
-                risultato.textContent = `Resistività (ρ) = ${Ro.toFixed(2)} Ωm`;
+                risultato.textContent = `Resistività (ρ) = ${Ro.toFixed(3)} Ωm`;
             } else if (!isNaN(Ro) && isNaN(L) && !isNaN(S) && !isNaN(R)) {
                 L = R * S / Ro;
-                risultato.textContent = `Lunghezza (L) = ${L.toFixed(2)} m`;
+                risultato.textContent = `Lunghezza (L) = ${L.toFixed(3)} m`;
             } else if (!isNaN(Ro) && !isNaN(L) && isNaN(S) && !isNaN(R)) {
                 S = Ro * L / R;
-                risultato.textContent = `Sezione (S) = ${S.toFixed(2)} m²`;
+                risultato.textContent = `Sezione (S) = ${S.toFixed(3)} m²`;
             } else if (!isNaN(Ro) && !isNaN(L) && !isNaN(S) && isNaN(R)) {
                 R = Ro * L / S;
-                risultato.textContent = `Resistenza (R) = ${R.toFixed(2)} Ω`;
+                risultato.textContent = `Resistenza (R) = ${R.toFixed(3)} Ω`;
             } else if (!isNaN(Ro) && !isNaN(L) && !isNaN(S) && !isNaN(R)) {
                 risultato.textContent = 'Ma fammi calcolare qualcosa :(';
             } else {
