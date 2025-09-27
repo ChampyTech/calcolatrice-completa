@@ -41,12 +41,13 @@
             let C = parseFloat(document.getElementById('CInput').value);
             let risultato = document.getElementById('risultato');
             let possibile = document.getElementById('possibile');
-            let discriminante = B * B - 4 * A * C;
 
             if (A == 0) return risultato.textContent = 'Ricordati che A non può essere uguale a 0.';
             if (isNaN(A) || isNaN(B) || isNaN(C)) return risultato.textContent = 'Per favore inserisci tutti e 3 i valori.';
 
             risultato.textContent = `Δ = ${discriminante.toLocaleString('it-IT')}`;
+
+            let discriminante = B * B - 4 * A * C;
 
             if (discriminante < 0) possibile.textContent = 'Questa equazione non ha soluzioni reali.';
             else if (discriminante = 0) possibile.textContent = 'Questa equazione ha 2 soluzioni reali coincidenti.';
