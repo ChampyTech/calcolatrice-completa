@@ -29,7 +29,7 @@
         <h3>Risultati</h3>
 
         <span id="risultato">-</span> <br>
-        <span id="possibile">-</span>
+        <span id="possibile"></span>
     </div>
 
     <script>
@@ -40,15 +40,23 @@
             let risultato = document.getElementById('risultato');
             let possibile = document.getElementById('possibile');
 
-            if (A == 0) return risultato.textContent = 'Ricordati che A non può essere uguale a 0.';
-            if (isNaN(A) || isNaN(B) || isNaN(C)) return risultato.textContent = 'Per favore inserisci tutti e 3 i valori.';
-
-            risultato.textContent = `Δ = ${discriminante.toLocaleString('it-IT')}`;
+            if (A == 0) {
+                risultato.textContent = 'Ricordati che A non può essere uguale a 0.';
+                possibile.textContent = '';
+                return;
+            };
+            if (isNaN(A) || isNaN(B) || isNaN(C)) {
+                risultato.textContent = 'Per favore inserisci tutti e 3 i valori.';
+                possibile.textContent = '';
+                return;
+            };
 
             let discriminante = B * B - 4 * A * C;
 
+            risultato.textContent = `Δ = ${discriminante.toLocaleString('it-IT')}`;
+
             if (discriminante < 0) possibile.textContent = 'Questa equazione non ha soluzioni reali.';
-            else if (discriminante = 0) possibile.textContent = 'Questa equazione ha 2 soluzioni reali coincidenti.';
+            else if (discriminante === 0) possibile.textContent = 'Questa equazione ha 2 soluzioni reali coincidenti.';
             else possibile.textContent = 'Questa equazione ha 2 soluzioni reali e distinte.';
 
             // if (!isNaN(A) && !isNaN(B) && !isNaN(C)) {
