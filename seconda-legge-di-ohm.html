@@ -40,20 +40,20 @@
 
             if (isNaN(Ro) && !isNaN(L) && !isNaN(S) && !isNaN(R)) {
                 Ro = R * S / L;
-                risultato.textContent = `Resistività (ρ) = ${Ro.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} Ωm`;
+                risultato.innerHTML = `Resistività (ρ) = ${Ro.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} Ωm`;
             } else if (!isNaN(Ro) && isNaN(L) && !isNaN(S) && !isNaN(R)) {
                 L = R * S / Ro;
-                risultato.textContent = `Lunghezza (L) = ${L.toFixed(3).toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} m`;
+                risultato.innerHTML = `Lunghezza (L) = ${L.toFixed(3).toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} m`;
             } else if (!isNaN(Ro) && !isNaN(L) && isNaN(S) && !isNaN(R)) {
                 S = Ro * L / R;
-                risultato.textContent = `Sezione (S) = ${S.toFixed(3).toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} m²`;
+                risultato.innerHTML = `Sezione (S) = ${S.toFixed(3).toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} m²`;
             } else if (!isNaN(Ro) && !isNaN(L) && !isNaN(S) && isNaN(R)) {
                 R = Ro * L / S;
-                risultato.textContent = `Resistenza (R) = ${R.toFixed(3).toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} Ω`;
+                risultato.innerHTML = `Resistenza (R) = ${R.toFixed(3).toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} Ω`;
             } else if (!isNaN(Ro) && !isNaN(L) && !isNaN(S) && !isNaN(R)) {
-                risultato.textContent = 'Ma fammi calcolare qualcosa :(';
+                risultato.innerHTML = 'Ma fammi calcolare qualcosa :(';
             } else {
-                risultato.textContent = 'Inserisci almeno 3 valori, please.';
+                risultato.innerHTML = 'Inserisci almeno 3 valori, please.';
             };
         }
     </script>

@@ -38,8 +38,8 @@
             let C = parseFloat(document.getElementById('CInput').value);
             let risultato = document.getElementById('risultato');
 
-            if (A == 0) return risultato.textContent = 'Ricordati che A non può essere uguale a 0.';
-            if (isNaN(A) || isNaN(B) || isNaN(C)) return risultato.textContent = 'Per favore inserisci tutti e 3 i valori.';
+            if (A == 0) return risultato.innerHTML = 'Ricordati che A non può essere uguale a 0.';
+            if (isNaN(A) || isNaN(B) || isNaN(C)) return risultato.innerHTML = 'Per favore inserisci tutti e 3 i valori.';
 
             let discriminante = B * B - 4 * A * C;
 

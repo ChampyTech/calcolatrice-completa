@@ -39,13 +39,13 @@
             let somma = document.getElementById('somma');
             let prodotto = document.getElementById('prodotto');
 
-            if (A == 0) return risultato.textContent = 'Ricordati che A non può essere uguale a 0.';
-            if (isNaN(A) || isNaN(B) || isNaN(C)) return risultato.textContent = 'Per favore inserisci tutti e 3 i valori.';
+            if (A == 0) return risultato.innerHTML = 'Ricordati che A non può essere uguale a 0.';
+            if (isNaN(A) || isNaN(B) || isNaN(C)) return risultato.innerHTML = 'Per favore inserisci tutti e 3 i valori.';
 
             let sommaValori = -B / A;
             let prodottoValori = C / A;
 
-            risultato.textContent = `Somma = ${sommaValori.toLocaleString('it-IT')} | Prodotto: ${prodottoValori.toLocaleString('it-IT')}`;
+            risultato.innerHTML = `Somma = ${sommaValori.toLocaleString('it-IT')} | Prodotto: ${prodottoValori.toLocaleString('it-IT')}`;
         }
     </script>
 </body>

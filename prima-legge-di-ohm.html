@@ -38,17 +38,17 @@
 
             if (isNaN(V) && !isNaN(I) && !isNaN(R)) {
                 V = I * R;
-                risultato.textContent = `Tensione (V) = ${V.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} V`;
+                risultato.innerHTML = `Tensione (V) = ${V.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} V`;
             } else if (!isNaN(V) && isNaN(I) && !isNaN(R)) {
                 I = V / R;
-                risultato.textContent = `Corrente (I) = ${I.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} A`;
+                risultato.innerHTML = `Corrente (I) = ${I.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} A`;
             } else if (!isNaN(V) && !isNaN(I) && isNaN(R)) {
                 R = V / I;
-                risultato.textContent = `Resistenza (R) = ${R.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} Ω`;
+                risultato.innerHTML = `Resistenza (R) = ${R.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} Ω`;
             } else if (!isNaN(V) && !isNaN(I) && !isNaN(R)) {
-                risultato.textContent = 'Lasciami calcolare qualcosa!';
+                risultato.innerHTML = 'Lasciami calcolare qualcosa!';
             } else {
-                risultato.textContent = 'Inserisci almeno due valori.';
+                risultato.innerHTML = 'Inserisci almeno due valori.';
             };
         }
     </script>

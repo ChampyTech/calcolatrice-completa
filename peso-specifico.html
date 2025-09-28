@@ -38,17 +38,17 @@
 
             if (isNaN(P) && !isNaN(V) && !isNaN(Ps)) {
                 P = Ps * V;
-                risultato.textContent = `Peso (P) = ${P.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} g`;
+                risultato.innerHTML = `Peso (P) = ${P.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} g`;
             } else if (!isNaN(P) && isNaN(V) && !isNaN(Ps)) {
                 V = P / Ps;
-                risultato.textContent = `Volume (V) = ${V.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} cm³`;
+                risultato.innerHTML = `Volume (V) = ${V.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} cm³`;
             } else if (!isNaN(P) && !isNaN(V) && isNaN(Ps)) {
                 Ps = P / V;
-                risultato.textContent = `Peso specifico (Ps) = ${Ps.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} g/cm³ o kg/dm³`;
+                risultato.innerHTML = `Peso specifico (Ps) = ${Ps.toLocaleString('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} g/cm³ o kg/dm³`;
             } else if (!isNaN(P) && !isNaN(V) && !isNaN(Ps)) {
-                risultato.textContent = 'Bene, ma quindi cosa vuoi che calcoli? 🤔';
+                risultato.innerHTML = 'Bene, ma quindi cosa vuoi che calcoli? 🤔';
             } else {
-                risultato.textContent = 'Please, inserisci almeno due valori.';
+                risultato.innerHTML = 'Please, inserisci almeno due valori.';
             };
         }
     </script>

@@ -55,8 +55,8 @@
             let risultato = document.getElementById('risultato');
 
             let compilati = Object.entries(valori).filter(([u, v]) => v !== '');
-            if (compilati.length === 0) return risultato.textContent = 'Per favore inserisci almeno un valore.';
-            if (compilati.length > 1) return risultato.textContent = 'Inserisci solo un valore alla volta. PLEASE.';
+            if (compilati.length === 0) return risultato.innerHTML = 'Per favore inserisci almeno un valore.';
+            if (compilati.length > 1) return risultato.innerHTML = 'Inserisci solo un valore alla volta. PLEASE.';
 
             let [scala, valore] = compilati[0];
             let x = parseFloat(valore);
