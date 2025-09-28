@@ -44,14 +44,14 @@
             let discriminante = B * B - 4 * A * C;
 
             if (discriminante < 0) {
-                risultato.textContent = 'Nessuna soluzione reale.';
+                risultato.innerHTML = 'Nessuna soluzione reale.';
             } else if (discriminante == 0) {
                 let X = (-B) / (2 * A);
-                risultato.textContent = `Soluzioni reali coincidenti: x₁ = x₂= ${X.toLocaleString('it-IT')}`;
+                risultato.innerHTML = `Soluzioni reali coincidenti: <br> x₁ = x₂= ${X.toLocaleString('it-IT')}`;
             } else {
                 let X1 = (-B + Math.sqrt(discriminante)) / (2 * A);
                 let X2 = (-B - Math.sqrt(discriminante)) / (2 * A);
-                risultato.textContent = `Soluzioni reali e distinte: x₁ = ${X1.toLocaleString('it-IT')} | x₂ = ${X2.toLocaleString('it-IT')}`;
+                risultato.innerHTML = `Soluzioni reali e distinte: <br> x₁ = ${X1.toLocaleString('it-IT')} <br> x₂ = ${X2.toLocaleString('it-IT')}`;
             }
         }
     </script>
