@@ -18,7 +18,7 @@
 
         <h3>Dati</h3>
 
-        <i>Ax² + Bx + c = 0</i>
+        <i>Ax² + Bx + C = 0</i>
 
         <label>A: <input type="number" id="AInput"></label>
         <label>B: <input type="number" id="BInput"></label>
@@ -40,7 +40,7 @@
             let prodotto = document.getElementById('prodotto');
 
             if (A == 0) return risultato.innerHTML = 'Ricordati che A non può essere uguale a 0.';
-            if (isNaN(A) || isNaN(B) || isNaN(C)) return risultato.innerHTML = 'Per favore inserisci tutti e 3 i valori.';
+            if (isNaN(A) || isNaN(B) || isNaN(C)) return risultato.innerHTML = 'Per favore inserisci 3 valori validi.';
 
             let sommaValori = -B / A;
             let prodottoValori = C / A;
