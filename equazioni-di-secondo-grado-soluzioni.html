@@ -44,14 +44,14 @@
             let discriminante = B * B - 4 * A * C;
 
             if (discriminante < 0) {
-                risultato.innerHTML = `Δ = b² - 4ac = ${B * B} - (${4 * A * C}) = ${discriminante} <br> Nessuna soluzione reale.`;
+                risultato.innerHTML = 'Nessuna soluzione reale.';
             } else if (discriminante == 0) {
                 let X = (-B) / (2 * A);
-                risultato.innerHTML = `Δ = b² - 4ac = ${B * B} - (${4 * A * C}) = ${discriminante} <br> x = -b / 2a = ${B * (-1)} / (${2 * A}) = ${X.toLocaleString('it-IT')} <br> Soluzioni reali coincidenti: <br> x₁ = x₂= ${X.toLocaleString('it-IT')}`;
+                risultato.innerHTML = `Soluzioni reali coincidenti: <br> x₁ = x₂= ${X.toLocaleString('it-IT')}`;
             } else {
                 let X1 = (-B + Math.sqrt(discriminante)) / (2 * A);
                 let X2 = (-B - Math.sqrt(discriminante)) / (2 * A);
-                risultato.innerHTML = `Δ = b² - 4ac = ${B * B} - (${4 * A * C}) = ${discriminante} <br> x = [-b ± √(b²-4ac)] / 2a = [${B * (-1)} ± √(${B * B}-(${4 * A * C})] / (${2 * A}) = [${B * (-1)} ± (${Math.sqrt(B * B - 4 * A * C).toFixed(2)})] / (${2 * A}) <br> Soluzioni reali e distinte: <br> x₁ = ${X1.toLocaleString('it-IT')} <br> x₂ = ${X2.toLocaleString('it-IT')}`;
+                risultato.innerHTML = `Soluzioni reali e distinte: <br> x₁ = ${X1.toLocaleString('it-IT')} <br> x₂ = ${X2.toLocaleString('it-IT')}`;
             }
         }
     </script>
